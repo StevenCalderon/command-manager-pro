@@ -1,0 +1,98 @@
+{
+	"variables": {
+		"sudo_password": "your_password",
+		"interface": "wlp0s20f3",
+		"delay": "1000ms"
+	},
+	"applications": [
+		{
+			"name": "your_app",
+			"package": "com.custom.app"
+		}
+	],
+	"panels": [
+		{
+			"name": "Application Commands",
+			"commands": [
+				{
+					"name": "Uninstall Application",
+					"command": "adb -s {{device}} shell pm uninstall {{app_package}}",
+					"color": "#FF7043"
+				},
+				{
+					"name": "Clear Application",
+					"command": "adb -s {{device}} shell pm clear {{app_package}}"
+				},
+				{
+					"name": "Start Application",
+					"command": "adb -s {{device}} shell am start -n {{app_package}}/.MainActivity"
+				},
+				{
+					"name": "Clear and Start Application",
+					"command": "adb -s {{device}} shell pm clear {{app_package}} && adb -s {{device}} shell am start -n {{app_package}}/.MainActivity"
+				},
+				{
+					"name": "Stop Application",
+					"command": "adb -s {{device}} shell am force-stop {{app_package}}"
+				}
+			]
+		},
+		{
+			"name": "Wifi Commands",
+			"commands": [
+				{
+					"name": "Turn Off WiFi",
+					"command": "adb -s {{device}} shell svc wifi disable"
+				},
+				{
+					"name": "Turn On WiFi",
+					"command": "adb -s {{device}} shell svc wifi enable"
+				},
+				{
+					"name": "Restart WiFi",
+					"command": "adb -s {{device}} shell svc wifi disable && sleep 10 && adb -s {{device}} shell svc wifi enable"
+				},
+				{
+					"name": "Simulate Slow WiFi",
+					"command": "echo {{sudo_password}} | sudo -S tc qdisc add dev {{interface}} root netem delay {{delay}}",
+					"color": "#FF7043"
+				},
+				{
+					"name": "Restore Normal WiFi",
+					"command": "echo {{sudo_password}} | sudo -S tc qdisc del dev {{interface}} root"
+				}
+			]
+		},
+		{
+			"name": "Telnet Connections",
+			"commands": [
+				{
+					"name": "Start Telnet",
+					"command": "(echo \"redir add tcp:8181:8181\"; echo \"redir add tcp:9100:9100\") | nc localhost {{port_emulator}}"
+				},
+				{
+					"name": "Remove Telnet",
+					"command": "(echo \"redir del tcp:8181\"; echo \"redir del tcp:9100\") | nc localhost {{port_emulator}}"
+				}
+			]
+		},
+		{
+			"name": "Device Commands",
+			"commands": [
+				{
+					"name": "Restart Device",
+					"command": "adb -s {{device}} reboot",
+					"color": "#D32F2F"
+				},
+				{
+					"name": "Restart ADB",
+					"command": "adb kill-server && adb start-server"
+				},
+				{
+					"name": "List ADB Devices",
+					"command": "adb devices"
+				}
+			]
+		}
+	]
+}
