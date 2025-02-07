@@ -1,13 +1,13 @@
 import os
 
 import flet as ft
-from components.devices.devices_ui import create_devices_section
-from components.menu_bar.menu_bar_ui import create_menu_bar
-from components.panels.panels_ui import create_panels
-from components.select_app.select_app_ui import create_select_app
-from components.terminal.terminal_section_ui import create_terminal
-from components.load_commands.load_commands_core import load_last_config_path, load_config
-from components.devices.devices_core import get_emulator_port
+from src.components.devices.devices_ui import create_devices_section
+from src.components.menu_bar.menu_bar_ui import create_menu_bar
+from src.components.panels.panels_ui import create_panels
+from src.components.select_app.select_app_ui import create_select_app
+from src.components.terminal.terminal_section_ui import create_terminal
+from src.components.load_commands.load_commands_core import load_last_config_path, load_config
+from src.components.devices.devices_core import get_emulator_port
 
 def initialize_ui(page: ft.Page, update_ui):
     terminal_output, bottom_terminal, real_terminal = create_terminal(page)

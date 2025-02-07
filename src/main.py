@@ -1,7 +1,7 @@
 import flet as ft
 from flet.core.colors import Colors
 
-from util.main_util import initialize_ui
+from src.util.main_util import initialize_ui
 
 ui = None
 def main(page: ft.Page):
@@ -55,4 +55,5 @@ def main(page: ft.Page):
 
     page.update()
 
-ft.app(target=main)
+if __name__ == "__main__":
+    ft.app(target=main)

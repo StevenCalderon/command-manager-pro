@@ -1,7 +1,7 @@
 import flet as ft
 from flet.core.colors import Colors
 
-from components.load_commands.load_commands_core import update_selected_device
+from src.components.load_commands.load_commands_core import update_selected_device
 
 from .devices_core import get_devices
 

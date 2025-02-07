@@ -1,4 +1,4 @@
-from components.terminal.terminal_section_core import execute_command
+from src.components.terminal.terminal_section_core import execute_command
 import flet as ft
 
 def get_devices():

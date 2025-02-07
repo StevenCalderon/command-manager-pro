@@ -1,6 +1,6 @@
 import flet as ft
 import functools
-from components.terminal.terminal_section_core import run_command
+from src.components.terminal.terminal_section_core import run_command
 
 def create_panels(config, get_dynamic_variables, terminal_output, page):
     panels_section = ft.ResponsiveRow(spacing=20, alignment=ft.MainAxisAlignment.START)

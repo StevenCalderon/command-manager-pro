@@ -1,7 +1,7 @@
 import flet as ft
 
 from flet.core.colors import Colors
-from components.load_commands.load_commands_core import update_config_from_file
+from src.components.load_commands.load_commands_core import update_config_from_file
 
 
 def create_menu_bar(page: ft.Page, app_combo, terminal_output, update_ui):
