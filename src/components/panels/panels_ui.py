@@ -2,7 +2,7 @@ import flet as ft
 import functools
 from components.terminal.terminal_section_core import run_command
 
-def create_panels(config, dynamic_variables, terminal_output, page):
+def create_panels(config, get_dynamic_variables, terminal_output, page):
     panels_section = ft.ResponsiveRow(spacing=20, alignment=ft.MainAxisAlignment.START)
 
     for panel in config["panels"]:
@@ -32,7 +32,7 @@ def create_panels(config, dynamic_variables, terminal_output, page):
                     ],
                 ),
                 on_click=lambda e, cmd=command["command"]: run_command(
-                    page, dynamic_variables, terminal_output, cmd
+                    page, get_dynamic_variables, terminal_output, cmd
                 ),
                 bgcolor=button_color,
                 border_radius=10,

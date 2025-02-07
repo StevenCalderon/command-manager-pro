@@ -23,7 +23,6 @@ def load_config(filepath):
 
 def update_selected_device(page, device_var, device_buttons, terminal_output, device):
     device_var.value = device
-    page.update()
     for button in device_buttons:
         if button.text == device:
             button.style = ft.ButtonStyle(bgcolor=ft.Colors.BLUE_800, color=ft.Colors.WHITE, shape=ft.RoundedRectangleBorder(radius=5), padding=ft.padding.symmetric(vertical=10, horizontal=20))

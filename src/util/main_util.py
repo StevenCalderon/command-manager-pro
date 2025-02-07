@@ -33,15 +33,20 @@ def initialize_ui(page: ft.Page, update_ui):
     menubar = create_menu_bar(page, app_section["app_dropdown"], terminal_output, update_ui)
 
     devices_section = create_devices_section(page, device_var, terminal_output)
-    port_emulator = get_emulator_port(device_var,terminal_output )
-    dynamic_variables = {
-    "device": device_var.value.strip(),
-    "app_package": app_var.value.strip(),
-    **config.get("variables", {}),
-    }
-    if port_emulator.isdigit():  
-        dynamic_variables["port_emulator"] = port_emulator
-    panels_section = create_panels(config, dynamic_variables, terminal_output, page)
+    
+    def get_dynamic_variables():
+        dynamic_variables = {
+            "device": device_var.value,
+            "app_package": app_var.value,
+            **config.get("variables", {}),
+        }
+        port_emulator = get_emulator_port(device_var,terminal_output)
+        if port_emulator.isdigit():  
+            dynamic_variables["port_emulator"] = port_emulator
+        
+        return dynamic_variables
+    
+    panels_section = create_panels(config, get_dynamic_variables, terminal_output, page)
 
 
     return {

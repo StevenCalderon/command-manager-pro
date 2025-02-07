@@ -9,7 +9,7 @@ def get_devices():
 
 
 def get_emulator_port(device_var: ft.Text, terminal_output: ft.Text) -> str:
-    device_id = device_var.value.strip()
+    device_id = device_var.value
     
     if device_id.startswith("emulator-"):
         port = device_id.split("-")[-1]

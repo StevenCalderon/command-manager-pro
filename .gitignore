@@ -9,3 +9,5 @@ env/
 .idea/
 env/
 wenv/
+build/
+dist/

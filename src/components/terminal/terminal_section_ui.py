@@ -20,6 +20,8 @@ class RealTerminal:
     def detect_shell(self):
         if sys.platform == "win32":
             return "cmd.exe"
+        elif sys.platform == "darwin":
+            return os.getenv("SHELL", "/bin/zsh")
         return "/bin/bash"
 
     def start(self):
