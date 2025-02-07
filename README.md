@@ -5,7 +5,7 @@
 
 Command Manager Pro is a desktop application built with Python and Flet that provides an intuitive graphical interface for executing and managing commands efficiently. It is designed for any user looking for a simpler and more convenient way to run commands without relying on the traditional terminal.
 
-![Pantalla principal de la aplicación](assets/Screenshot_app.png)
+![Pantalla principal de la aplicación](assets/ScreenshotApp.png)
 
 ### Features:
 
