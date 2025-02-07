@@ -21,8 +21,8 @@ Command Manager Pro is a desktop application built with Python and Flet that pro
 
 You can download the latest version of Command Manager Pro for your operating system:
 - **Linux:** [Download](https://github.com/StevenCalderon/command-manager-pro/releases/latest)
-- **Windows:** PENDING
-- **macOS:** PENDING 
+- **Windows:** [Download](https://github.com/StevenCalderon/command-manager-pro/releases/latest)
+- **macOS:** [Download](https://github.com/StevenCalderon/command-manager-pro/releases/latest)
 
 > 🚀 **Tip:** Always download the latest version from the [Releases](https://github.com/StevenCalderon/command-manager-pro/releases) page.
 
