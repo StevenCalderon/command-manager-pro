@@ -21,7 +21,18 @@ class RealTerminal:
         if sys.platform == "win32":
             return "cmd.exe"
         elif sys.platform == "darwin":
-            return os.getenv("SHELL", "/bin/zsh")
+            shell = os.getenv("SHELL", None)
+            if shell:
+                return shell
+            else:
+                try:
+                    process = subprocess.Popen(["ps", "-p", str(os.getpid())], stdout=subprocess.PIPE)
+                    output, _ = process.communicate()
+                    shell = output.decode().split("\n")[1].split()[-1]
+                    return shell
+                except Exception as e:
+                    print(f"Error al intentar detectar el shell: {e}")
+                    return "/bin/zsh"  
         return "/bin/bash"
 
     def start(self):
