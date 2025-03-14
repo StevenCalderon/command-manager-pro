@@ -31,7 +31,7 @@ class RealTerminal:
                     shell = output.decode().split("\n")[1].split()[-1]
                     return shell
                 except Exception as e:
-                    print(f"Error al intentar detectar el shell: {e}")
+                    print(f"Error trying to detect shell: {e}")
                     return "/bin/zsh"  
         return "/bin/bash"
 
